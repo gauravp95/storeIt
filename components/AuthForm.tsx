@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 import { createAccount } from "@/lib/actions/user.actions";
+import OTPModal from "./OTPModal";
 
 type FormType = "sign-in" | "sign-up";
 
@@ -123,7 +124,7 @@ const AuthForm = ({ type }: { type: "sign-in" | "sign-up" }) => {
                 width={24}
                 height={24}
                 alt="loader"
-                className="animate-spin ml-2"
+                className="ml-2 animate-spin"
               />
             )}
           </Button>
@@ -143,6 +144,12 @@ const AuthForm = ({ type }: { type: "sign-in" | "sign-up" }) => {
           </div>
         </form>
       </Form>
+      {true && (
+        <OTPModal
+          email={"gauravpatil@thehosteller.com"}
+          accountId={accountId}
+        />
+      )}
       {/* OTP Verification */}
     </>
   );
